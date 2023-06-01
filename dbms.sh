@@ -23,3 +23,28 @@ function mainMenu {
     *) echo " Wrong Choice " ; mainMenu;
   esac
 }
+function selectDB {
+  echo -e "Enter Database Name: \c"
+  read dbName
+  cd ./DBMS/$dbName 2>>./.error.log
+  if [[ $? == 0 ]]; then
+    echo "Database $dbName was Successfully Selected"
+    # insert tablesMenu
+  else
+    echo "Database $dbName wasn't found"
+    mainMenu
+  fi
+}
+
+function createDB {
+  echo -e "Enter Database Name: \c"
+  read dbName
+  mkdir ./DBMS/$dbName
+  if [[ $? == 0 ]]
+  then
+    echo "Database Created Successfully"
+  else
+    echo "Error Creating Database $dbName"
+  fi
+  mainMenu
+}
