@@ -48,3 +48,28 @@ function createDB {
   fi
   mainMenu
 }
+function renameDB {
+  echo -e "Enter Current Database Name: \c"
+  read dbName
+  echo -e "Enter New Database Name: \c"
+  read newName
+  mv ./DBMS/$dbName ./DBMS/$newName 2>>./.error.log
+  if [[ $? == 0 ]]; then
+    echo "Database Renamed Successfully"
+  else
+    echo "Error Renaming Database"
+  fi
+  mainMenu
+}
+
+function dropDB {
+  echo -e "Enter Database Name: \c"
+  read dbName
+  rm -r ./DBMS/$dbName 2>>./.error.log
+  if [[ $? == 0 ]]; then
+    echo "Database Dropped Successfully"
+  else
+    echo "Database Not found"
+  fi
+  mainMenu
+}
