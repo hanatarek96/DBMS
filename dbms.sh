@@ -127,6 +127,19 @@ esac
 }
 
 function selectAll {
+  echo -e "Enter Table Name: \c"
+  read tName
+  column -t -s '|' $tName 2>>./.error.log
+  if [[ $? != 0 ]]
+  then
+    echo "Error Displaying Table $tName"
+  fi
+  selectMenu
+}
+
+
+
+function selectAll {
  echo -e "Enter Table Name:  \c"
  read tName
  column -t -s '|' $tName 2>>./.error.log
