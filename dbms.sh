@@ -168,6 +168,7 @@ function deleteFromTable {
     fi
   fi
 }
+
 function selectMenu {
   echo -e "\n\n+---------------Select Menu--------------------+"
   echo "| 1. Select All Columns of a Table              |"
