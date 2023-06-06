@@ -122,7 +122,7 @@ case $ch in
 5) clear; tablesMenu ;;
 6) clear; cd ../.. 2>>./.error.log; mainMenu ;;
 7) exit ;;
-*) echo 'Wrong Choice" ; selectMenu;
+*) echo "Wrong Choice" ; selectMenu;
 esac
 }
 
