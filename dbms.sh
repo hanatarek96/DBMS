@@ -130,7 +130,7 @@ function selectAll{
 echo -e "Enter Table Name:  \c"
 read tableName
 column -t -s '|' $tableName 2>>./.error.log
-if [[ $/ != 0 ]]
+if [[ $? != 0 ]]
 then
   echo "Error Displaying Table $tableName"
 fi
