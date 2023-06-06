@@ -191,7 +191,7 @@ function selectMenu {
   esac
 }
 
-function selectAll {
+function selectAllTables {
  echo -e "Enter Table Name:  \c"
  read tName
  column -t -s '|' $tName 2>>./.error.log
@@ -200,6 +200,15 @@ function selectAll {
    echo "Error Displaying Table $tName"
  fi
  selectMenu
+}
+
+function selectCol {
+  echo -e "Enter Table Name: \c"
+  read tName
+  echo -e "Enter Column Number: \c"
+  read colNum
+  awk 'BEGIN{FS="|"}{print $'$colNum'}' $tName
+  selectMenu
 }
 
 function allCond {
