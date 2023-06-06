@@ -102,3 +102,44 @@ function tablesMenu {
 
 }
 
+function SelectMenu {
+echo -e "\n\n+-----------------Select Menu-------------------+"
+echo "| 1. Select All Columns of Table                  |"
+echo "| 2. Select Specific Coloumn from Table           |"
+echo "| 3. Select from Table under condition            |"
+echo "| 4. Aggregate Function for a Specific Column     |"
+echo "| 5. Back to Table Menu                           |"
+echo "| 6. Back to Main Menu                            |"
+echo "| 5. Exit                                         |"
+echo "+-------------------------------------------------------+"
+echo -e "Enter Your Choice:  \c"
+read ch
+case $ch in
+1) selectAll ;;
+2) selectCol ;;
+3) clear; selectCon ;;
+4) ;;
+5) clear; tablesMenu ;;
+6) clear; cd ../.. 2>>./.error.log; mainMenu ;;
+7) exit ;;
+*) echo 'Wrong Choice" ; selectMenu;
+esac
+}
+
+function selectAll{
+echo -e "Enter Table Name:  \c"
+read tableName
+column -t -s '|' $tableName 2>>./.error.log
+if [[ $/ != 0 ]]
+then
+  echo "Error Displaying Table $tableName"
+fi
+selectMenu
+}
+
+
+
+
+4) 
+
+}
