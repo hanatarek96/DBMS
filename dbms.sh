@@ -168,29 +168,26 @@ function deleteFromTable {
     fi
   fi
 }
-
 function selectMenu {
-echo -e "\n\n+-----------------Select Menu-------------------+"
-echo "| 1. Select All Columns of Table                  |"
-echo "| 2. Select Specific Coloumn from Table           |"
-echo "| 3. Select from Table under condition            |"
-echo "| 4. Aggregate Function for a Specific Column     |"
-echo "| 5. Back to Table Menu                           |"
-echo "| 6. Back to Main Menu                            |"
-echo "| 5. Exit                                         |"
-echo "+-------------------------------------------------------+"
-echo -e "Enter Your Choice:  \c"
-read ch
-case $ch in
-1) selectAll ;;
-2) selectCol ;;
-3) clear; selectCon ;;
-4) ;;
-5) clear; tablesMenu ;;
-6) clear; cd ../.. 2>>./.error.log; mainMenu ;;
-7) exit ;;
-*) echo "Wrong Choice" ; selectMenu;
-esac
+  echo -e "\n\n+---------------Select Menu--------------------+"
+  echo "| 1. Select All Columns of a Table              |"
+  echo "| 2. Select Specific Column from a Table        |"
+  echo "| 3. Select From Table under condition          |"
+  echo "| 4. Back To Tables Menu                        |"
+  echo "| 5. Back To Main Menu                          |"
+  echo "| 6. Exit                                       |"
+  echo "+-----------------------------------------------------+"
+  echo -e "Enter Choice: \c"
+  read ch
+  case $ch in
+    1) selectAllTables ;;
+    2) selectCol ;;
+    3) clear; selectCon ;;
+    4) clear; tableMenu ;;
+    5) clear; cd ../.. 2>>./.error.log; mainMenu ;;
+    7) exit ;;
+    *) echo " Wrong Choice " ; selectMenu;
+  esac
 }
 
 function selectAll {
