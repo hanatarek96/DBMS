@@ -102,7 +102,7 @@ function tablesMenu {
 
 }
 
-function SelectMenu {
+function selectMenu {
 echo -e "\n\n+-----------------Select Menu-------------------+"
 echo "| 1. Select All Columns of Table                  |"
 echo "| 2. Select Specific Coloumn from Table           |"
@@ -132,14 +132,10 @@ read tableName
 column -t -s '|' $tableName 2>>./.error.log
 if [[ $? != 0 ]]
 then
-  echo "Error Displaying Table $tableName"
+echo "Error Displaying Table $tableName"
 fi
 selectMenu
 }
 
 
 
-
-4) 
-
-}
