@@ -126,13 +126,13 @@ case $ch in
 esac
 }
 
-function selectAll{
+function selectAll {
 echo -e "Enter Table Name:  \c"
-read tableName
-column -t -s '|' $tableName 2>>./.error.log
+read tName
+column -t -s '|' $tName 2>>./.error.log
 if [[ $? != 0 ]]
 then
-echo "Error Displaying Table $tableName"
+ echo "Error Displaying Table $tName"
 fi
 selectMenu
 }
