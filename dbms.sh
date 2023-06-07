@@ -29,7 +29,7 @@ function selectDB {
   cd ./DBMS/$dbName 2>>./.error.log
   if [[ $? == 0 ]]; then
     echo "Database $dbName was Successfully Selected"
-    # insert tablesMenu
+    tablesMenu
   else
     echo "Database $dbName wasn't found"
     mainMenu
