@@ -168,6 +168,19 @@ function createTable {
   fi
 }
 
+function dropTable {
+  echo -e "Enter Table Name: \c"
+  read tName
+  rm $tName .$tName 2>>./.error.log
+  if [[ $? == 0 ]]
+  then
+    echo "Table Dropped Successfully"
+  else
+    echo "Error Dropping Table $tName"
+  fi
+  tablesMenu
+}
+
 function insertIntoTable {
   echo -e "Table Name: \c"
   read tableName
