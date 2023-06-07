@@ -1,7 +1,7 @@
 mkdir DBMS 2>> ./.error.log
 clear
 echo "Welcome To DBMS"
-echo -e "\nAUTHOR\n\tWritten by: Habiba Ahmed & Hana Tarek & Nada Karim & Moatasem Ashmawy.\n"
+echo -e "\nAUTHOR\n\tWritten by: Habiba Ahmed & Hana Tarek & Nada Karim & Moatasem Ashmawy & Jana El gohary.\n"
 function mainMenu {
   echo -e "\n+---------Main Menu-------------+"
   echo "| 1. Select DB                  |"
@@ -319,7 +319,7 @@ function selectMenu {
   case $ch in
     1) selectAllTables ;;
     2) selectCol ;;
-    3) clear; selectCon ;;
+    3) clear; selectUnderConMenu ;;
     4) clear; tablesMenu ;;
     5) clear; cd ../.. 2>>./.error.log; mainMenu ;;
     6) exit ;;
@@ -347,7 +347,7 @@ function selectCol {
   selectMenu
 }
 
-function selectCon {
+function selectUnderConMenu {
   echo -e "\n\n+--------Select Under Condition Menu-----------+"
   echo "| 1. Select All Columns Matching Condition    |"
   echo "| 2. Select Specific Column Matching Condition|"
@@ -359,8 +359,8 @@ function selectCon {
   read ch
   case $ch in
     1) clear; allCond ;;
-    2) clear; specCond ;;
-    3) clear; selectCon ;;
+    2) clear; specColUnderCond ;;
+    3) clear; selectMenu ;;
     4) clear; cd ../.. 2>>./.error.log; mainMenu ;;
     5) exit ;;
     *) echo " Wrong Choice " ; selectCon;
@@ -401,7 +401,7 @@ function allCond {
   fi
 }
 
-function specCond {
+function specColUnderCond {
   echo -e "Select specific column from TABLE Where FIELD(OPERATOR)VALUE \n"
   echo -e "Enter Table Name: \c"
   read tName
