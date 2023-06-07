@@ -320,7 +320,7 @@ function selectMenu {
     1) selectAllTables ;;
     2) selectCol ;;
     3) clear; selectCon ;;
-    4) clear; tableMenu ;;
+    4) clear; tablesMenu ;;
     5) clear; cd ../.. 2>>./.error.log; mainMenu ;;
     6) exit ;;
     *) echo " Wrong Choice " ; selectMenu;
@@ -345,6 +345,26 @@ function selectCol {
   read colNum
   awk 'BEGIN{FS="|"}{print $'$colNum'}' $tName
   selectMenu
+}
+
+function selectCon {
+  echo -e "\n\n+--------Select Under Condition Menu-----------+"
+  echo "| 1. Select All Columns Matching Condition    |"
+  echo "| 2. Select Specific Column Matching Condition|"
+  echo "| 3. Back To Selection Menu                   |"
+  echo "| 4. Back To Main Menu                        |"
+  echo "| 5. Exit                                     |"
+  echo "+---------------------------------------------+"
+  echo -e "Enter Choice: \c"
+  read ch
+  case $ch in
+    1) clear; allCond ;;
+    2) clear; specCond ;;
+    3) clear; selectCon ;;
+    4) clear; cd ../.. 2>>./.error.log; mainMenu ;;
+    5) exit ;;
+    *) echo " Wrong Choice " ; selectCon;
+  esac
 }
 
 function allCond {
