@@ -39,6 +39,10 @@ function selectDB {
 function createDB {
   echo -e "Enter Database Name: \c"
   read dbName
+  if ! [[$dbname =~ ([a-zA-Z]+)]]; then
+      echo -e "Invalid Name Please Enter Alphabetical Characters Only"
+      mainMenu
+  fi
   mkdir ./DBMS/$dbName
   if [[ $? == 0 ]]
   then
