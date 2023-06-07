@@ -109,6 +109,10 @@ function tablesMenu {
 function createTable {
   echo -e "Table Name: \c"
   read tableName
+  if ! [[ "$tableName" =~ [a-zA-Z]+ ]]; then
+      echo -e "Invalid Name Please Enter Alphabetical Characters Only"
+      tablesMenu
+  fi
   if [[ -f $tableName ]]; then
     echo "table already existed ,choose another name"
     tablesMenu
